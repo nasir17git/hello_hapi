@@ -10,18 +10,6 @@ pipeline {
     }
 
     stages {
-        stage('Build') {
-            steps {
-                echo 'Building...'
-                sh 'npm install'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing...'
-                sh 'npm test'
-            }
-        }
          stage('Clone repository') { 
             steps { 
                 script{
@@ -32,7 +20,7 @@ pipeline {
         stage('Image Build') { 
             steps { 
                 script{
-                 app = docker.build("underwater")
+                 app = docker.build("ferepo")
                 }
             }
         }
